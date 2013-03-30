@@ -33,7 +33,7 @@ int main(){
 		cout << "Invalid selection automatically enabling Text Mode" << endl;
 	}
 
-	cout << " Type \"exit\" at any time to quit"<< endl;
+	cout << "Type \"exit\" at any time to quit"<< endl;
 	while(!quit){
 		cout << "input text" << endl;
 		getline(cin, input);
