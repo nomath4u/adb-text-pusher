@@ -125,7 +125,7 @@ void get_sms(){
 	ostringstream ss;
 	ss << past_time;
 	string past_string = ss.str();
-	string command = "adb shell \'sqlite3 /data/data/com.android.providers.telephony/databases/mmssms.db \"SELECT address, date, body FROM sms WHERE date > \'" + past_string +"\'\"\'";
+	string command = "adb shell \'sqlite3 /data/data/com.android.providers.telephony/databases/mmssms.db \"SELECT address, date, body FROM sms\"\'"; //WHERE date > \'" + past_string +"\'\"\'";
 
 	system("adb root");
 	system(command.c_str());
