@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <sys/time.h>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ vector<string> parse_string(string);
 bool check_apostrophe(string&);
 void send_apostrophe_string(vector<string>);
 void replace_apostrophe(string&);
+void get_sms();
 
 bool textmode;
 
@@ -33,12 +35,14 @@ int main(){
 		cout << "Invalid selection automatically enabling Text Mode" << endl;
 	}
 
-	cout << "Type \"exit\" at any time to quit"<< endl;
+	cout << "Type \"exit\" at any time to quit"<< endl << "Type \"read\" to get most recent text" << endl;
 	while(!quit){
 		cout << "input text" << endl;
 		getline(cin, input);
 		if(input == "exit")
 			quit = true;
+		else if(input == "read")
+			get_sms();
 		else
 			send_string(parse_string(input));
 	}
@@ -97,7 +101,7 @@ void send_apostrophe_string(vector<string> frags){
 		string send = "adb shell input text " + *it ;
 		if(it->length() != 0) //Prevents calling with multiple apostrophes in a row
 			system(send.c_str());
-		if((it + 1) != frags.end())//Check if final fragment
+		if(((it + 1) != frags.end()))//Check if final fragment
 			system("adb shell input keyevent 75"); //Send apostrophe
 	}
 }
@@ -110,3 +114,21 @@ void replace_apostrophe(string & word){
 	}
 }
 
+void get_sms(){
+	double minutes = 1;
+	struct timeval tim;  
+    	gettimeofday(&tim, NULL);  
+    	double t1=tim.tv_sec+(tim.tv_usec); //current time in miliseconds
+
+	double past_time = t1; 
+	system("adb shell date +%s\'");
+	ostringstream ss;
+	ss << past_time;
+	string past_string = ss.str();
+	string command = "adb shell \'sqlite3 /data/data/com.android.providers.telephony/databases/mmssms.db \"SELECT address, date, body FROM sms WHERE date > \'" + past_string +"\'\"\'";
+
+	system("adb root");
+	system(command.c_str());
+	cout << endl;
+
+}
