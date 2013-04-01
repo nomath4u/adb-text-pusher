@@ -1,4 +1,4 @@
 CC=g++
 
-keypusher: keypusher.o
-     $(CC) -o keypusher keypusher.o
+keypusher: keypusher.cpp
+	$(CC) -o keypusher keypusher.cpp
