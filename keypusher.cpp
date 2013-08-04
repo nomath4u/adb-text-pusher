@@ -139,8 +139,7 @@ void get_sms(){
 }
 
 void take_photo(){
-	system("adb shell");
-	system("am start -a android.intent.action.Main -n com.android.camera/.CameraEntry");
+	system("adb shell sh /sdcard/take_photo.sh"); // will only work if script has been pushed to device
 
 
 }
