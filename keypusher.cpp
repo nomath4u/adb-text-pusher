@@ -13,6 +13,7 @@ bool check_apostrophe(string&);
 void send_apostrophe_string(vector<string>);
 void replace_apostrophe(string&);
 void get_sms();
+void take_photo();
 
 bool textmode;
 
@@ -20,6 +21,8 @@ int main(){
 	string input;
 	bool quit = false;
 	char selection;
+	cout << "If it isn't plugged in already, please plug your android phone in now." << endl;   //Trying to add some sort of instructions if they didn't read the README
+
 	cout << "Would you like to enable text mode? (Y/n)" << endl;
 	cin.get(selection);
 	cin.ignore(25, '\n');
@@ -43,6 +46,8 @@ int main(){
 			quit = true;
 		else if(input == "read")
 			get_sms();
+		else if(input == "camera")
+			take_photo();
 		else
 			send_string(parse_string(input));
 	}
@@ -130,5 +135,12 @@ void get_sms(){
 	system("./adb_local/adb root");
 	system(command.c_str());
 	cout << endl;
+
+}
+
+void take_photo(){
+	system("adb shell");
+	system("am start -a android.intent.action.Main -n com.android.camera/.CameraEntry");
+
 
 }
