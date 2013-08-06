@@ -92,11 +92,7 @@ bool check_apostrophe(string &word){
 
 	unsigned found = word.find_first_of(" \' ");
 	
-	if(found!=string::npos){
-		return true;
-	}	
-	else
-		return false;
+	return found!=string::npos;
 }
 
 
