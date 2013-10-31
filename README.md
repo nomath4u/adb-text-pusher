@@ -4,6 +4,8 @@ This program will send text via adb to an android device and then press enter, m
 
 Text Mode automatically presses enter for you to send messages
 
+* add -s to push the camera script to your phone
+
 * type "exit" at the input prompt to quit
 
 * type "camera" at the input prompt to launch the camera app and have it take a picture for you

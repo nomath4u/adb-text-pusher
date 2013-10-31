@@ -14,13 +14,18 @@ void send_apostrophe_string(vector<string>);
 void replace_apostrophe(string&);
 void get_sms();
 void take_photo();
+void parse_Flags(int, char**);
+void push_Script();
 
 bool textmode;
 
-int main(){
+int main(int argc, char** argv){
 	string input;
 	bool quit = false;
 	char selection;
+	if(argc != 1){
+		parse_Flags(argc, argv);
+	}
 	cout << "If it isn't plugged in already, please plug your android phone in now." << endl;   //Trying to add some sort of instructions if they didn't read the README
 
 	cout << "Would you like to enable text mode? (Y/n)" << endl;
@@ -138,4 +143,21 @@ void take_photo(){
 	system("adb shell sh /sdcard/take_photo.sh"); // will only work if script has been pushed to device
 
 
+}
+
+void parse_Flags(int input_tokens, char **input_string){
+	string s;
+	int i;
+	for(i=1; i < input_tokens; i++){ //Parse the one flag
+		
+		s = input_string[i];
+		if(s == "-s"){
+			push_Script();
+		}
+	}
+}
+
+void push_Script(){
+	/* FIXME: Actually push the script */
+	cout << "push script here" << endl;
 }
