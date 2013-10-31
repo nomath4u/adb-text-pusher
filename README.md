@@ -10,9 +10,9 @@ Text Mode automatically presses enter for you to send messages
 
 
 ###root only features
-* type "read" at the input and all of your text messages will be displayed with the most recent being on the bottom. (This will include ones you have sent)
+* type "read" at the input and all of your text messages will be displayed with the most recent being on the bottom. (This will include ones you have sent) This also requires sqlite3 on your ROM.
 
 
 Currently *requires* that adb be installed and part of the PATH
 
-This is for Unix systems and has only been tested on Ubuntu
+This is for Unix systems and has only been tested on Ubuntu and Arch
