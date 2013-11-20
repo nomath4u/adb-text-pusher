@@ -3,6 +3,8 @@
 #include <QtGui>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QLineEdit>
+#include <QHBoxLayout>
 
 QWidget* setUpGUI();
 
@@ -32,9 +34,17 @@ QWidget* setUpGUI(){
      QPushButton* quitButton = new QPushButton("&Quit");
      QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
 
-     /*Define the layout*/
+     QPushButton* sendButton = new QPushButton("&Send");
+
+     QLineEdit* textInput = new QLineEdit("Enter text here");
+
+     /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
-     layout->addWidget(quitButton);
+     layout->addWidget(textInput);
+     QHBoxLayout *buttons = new QHBoxLayout();
+     buttons->addWidget(quitButton);
+     buttons->addWidget(sendButton);
+     layout->addLayout(buttons);
 
      window->setLayout(layout);
 
