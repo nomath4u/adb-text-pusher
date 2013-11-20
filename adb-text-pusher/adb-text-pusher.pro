@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    ../keypusher.cpp \
+    ../keypusherobj.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    ../keypusherobj.h
 
 FORMS    += mainwindow.ui
