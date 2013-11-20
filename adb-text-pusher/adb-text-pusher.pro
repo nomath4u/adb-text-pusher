@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-11-03T18:46:46
+# Project created by QtCreator 2013-11-19T15:01:31
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = adb_toolbox
+TARGET = adb-text-pusher
 TEMPLATE = app
 
 
