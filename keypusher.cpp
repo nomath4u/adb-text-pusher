@@ -64,29 +64,21 @@ void send_string(vector<string> words){
 
 	for(vector<string>::iterator it = words.begin(); it != words.end(); ++it){
 		if(!check_apostrophe(*it)){
-<<<<<<< HEAD
-            string send = "adb shell input text " + *it ;
-=======
+
 			string send = "adb shell input text " + *it ;
->>>>>>> 6667469d52d70f1686173999d3b673f50dd860ea
+
 			system(send.c_str());
 		}
 		else{
 			replace_apostrophe(*it);
 			send_apostrophe_string(parse_string(*it));
 		}	
-		if((it + 1) != words.end()) //Check if it is the last word
-<<<<<<< HEAD
+        if((it + 1) != words.end()){ //Check if it is the last word
             system("adb shell input keyevent 62"); //Send space key
-	}
-	if(textmode)
-        system("adb shell input keyevent 66"); //Send enter key
-=======
-			system("shell input keyevent 62"); //Send space key
+        }
 	}
 	if(textmode)
 		system("adb shell input keyevent 66"); //Send enter key
->>>>>>> 6667469d52d70f1686173999d3b673f50dd860ea
 	
 }
 
@@ -115,19 +107,13 @@ bool check_apostrophe(string &word){
 void send_apostrophe_string(vector<string> frags){
 	for(vector<string>::iterator it = frags.begin(); it != frags.end(); ++it){
 		
-<<<<<<< HEAD
-        string send = "adb shell input text " + *it ;
-		if(it->length() != 0) //Prevents calling with multiple apostrophes in a row
-			system(send.c_str());
-		if(((it + 1) != frags.end()))//Check if final fragment
-            system("adb shell input keyevent 75"); //Send apostrophe
-=======
+
 		string send = "adb shell input text " + *it ;
 		if(it->length() != 0) //Prevents calling with multiple apostrophes in a row
 			system(send.c_str());
 		if(((it + 1) != frags.end()))//Check if final fragment
 			system("adb shell input keyevent 75"); //Send apostrophe
->>>>>>> 6667469d52d70f1686173999d3b673f50dd860ea
+
 	}
 }
 
@@ -150,15 +136,10 @@ void get_sms(){
 	ostringstream ss;
 	ss << past_time;
 	string past_string = ss.str();
-<<<<<<< HEAD
     string command = "adb shell \'sqlite3 /data/data/com.android.providers.telephony/databases/mmssms.db \"SELECT address, date, body FROM sms\"\'"; //WHERE date > \'" + past_string +"\'\"\'";
 
     system("adb root");
-=======
-	string command = "adb shell \'sqlite3 /data/data/com.android.providers.telephony/databases/mmssms.db \"SELECT address, date, body FROM sms\"\'"; //WHERE date > \'" + past_string +"\'\"\'";
 
-	system("adb root");
->>>>>>> 6667469d52d70f1686173999d3b673f50dd860ea
 	system(command.c_str());
 	cout << endl;
 
