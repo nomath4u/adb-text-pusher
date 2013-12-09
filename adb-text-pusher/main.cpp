@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <QCheckBox>
 #include "../keypusherobj.h"
 
 QWidget* setUpGUI();
@@ -30,13 +31,13 @@ int main(int argc, char *argv[])
 /*Setup GUI*/
 QWidget* setUpGUI(){
     QWidget* window = new QWidget();
-    std::string testy = "Winning";
+
 
      /*Create Widgets*/
      QPushButton* quitButton = new QPushButton("&Quit");
      QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
-
      QPushButton* sendButton = new QPushButton("&Send");
+     QCheckBox* autoSendBox = new QCheckBox("&Send Message on Text Send");
 
 
 
@@ -47,6 +48,7 @@ QWidget* setUpGUI(){
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
      layout->addWidget(textInput);
+     layout->addWidget(autoSendBox);
      QHBoxLayout *buttons = new QHBoxLayout();
      buttons->addWidget(quitButton);
      buttons->addWidget(sendButton);
