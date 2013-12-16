@@ -42,8 +42,9 @@ QWidget* setUpGUI(){
 
 
      QLineEdit* textInput = new QLineEdit("Enter text here");
-     KeyPusherObj* pusher = new KeyPusherObj(textInput);
+     KeyPusherObj* pusher = new KeyPusherObj(textInput,autoSendBox);
      QObject::connect(sendButton, SIGNAL(clicked()), pusher,SLOT(sendString()));
+     QObject::connect(autoSendBox, SIGNAL(stateChanged(int)),pusher,SLOT(setAutoSendState()));
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;

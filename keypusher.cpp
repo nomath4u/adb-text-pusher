@@ -169,3 +169,7 @@ void push_Script(){
 	system(command.c_str());
 	cout << "push script here" << endl;
 }
+
+void set_TextMode(bool state){
+        textmode = state;
+}
