@@ -14,6 +14,7 @@ KeyPusherObj::KeyPusherObj(QLineEdit* boxy,QCheckBox* check)
 
 void KeyPusherObj::sendString(){
     send_string(parse_string(this->box->text().toStdString()));
+    this->box->setText("");
 }
 
 void KeyPusherObj::setAutoSendState(){

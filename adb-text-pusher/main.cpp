@@ -45,6 +45,7 @@ QWidget* setUpGUI(){
      KeyPusherObj* pusher = new KeyPusherObj(textInput,autoSendBox);
      QObject::connect(sendButton, SIGNAL(clicked()), pusher,SLOT(sendString()));
      QObject::connect(autoSendBox, SIGNAL(stateChanged(int)),pusher,SLOT(setAutoSendState()));
+     QObject::connect(textInput,SIGNAL(returnPressed()),pusher,SLOT(sendString()));
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
