@@ -38,6 +38,8 @@ QWidget* setUpGUI(){
      QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
      QPushButton* sendButton = new QPushButton("&Send");
      QCheckBox* autoSendBox = new QCheckBox("&Send Message on Text Send");
+     QPushButton* cameraButton = new QPushButton("&Camera");
+     QPushButton* scriptButton = new QPushButton("Push &Script");
 
 
 
@@ -46,6 +48,8 @@ QWidget* setUpGUI(){
      QObject::connect(sendButton, SIGNAL(clicked()), pusher,SLOT(sendString()));
      QObject::connect(autoSendBox, SIGNAL(stateChanged(int)),pusher,SLOT(setAutoSendState()));
      QObject::connect(textInput,SIGNAL(returnPressed()),pusher,SLOT(sendString()));
+     QObject::connect(cameraButton,SIGNAL(clicked()),pusher,SLOT(takePicture()));
+     QObject::connect(scriptButton,SIGNAL(clicked()),pusher,SLOT(pushScript()));
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
@@ -54,6 +58,8 @@ QWidget* setUpGUI(){
      QHBoxLayout *buttons = new QHBoxLayout();
      buttons->addWidget(quitButton);
      buttons->addWidget(sendButton);
+     buttons->addWidget(cameraButton);
+     buttons->addWidget(scriptButton);
      layout->addLayout(buttons);
 
      window->setLayout(layout);

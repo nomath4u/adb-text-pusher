@@ -165,7 +165,7 @@ void parse_Flags(int input_tokens, char **input_string){
 
 void push_Script(){
 	/* FIXME: Actually push the script */
-	string command = "adb push ./take_photo.sh /sdcard/take_photo.sh";
+    string command = "adb push ../take_photo.sh /sdcard/take_photo.sh";
 	system(command.c_str());
 	cout << "push script here" << endl;
 }

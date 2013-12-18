@@ -8,7 +8,9 @@ Text Mode automatically presses enter for you to send messages
 
 * type "exit" at the input prompt to quit
 
-* type "camera" at the input prompt to launch the camera app and have it take a picture for you
+* type "camera" at the input prompt to launch the camera app and have it take a picture for you. *NOTE* this will not work if you have not already pushed the script
+
+* to remove the script currently you must manually delete the file from /sdcard/take_photo.sh on your android device
 
 
 ###root only features

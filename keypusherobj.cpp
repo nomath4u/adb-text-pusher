@@ -21,3 +21,10 @@ void KeyPusherObj::setAutoSendState(){
     set_TextMode(this->checky->isChecked());
 }
 
+void KeyPusherObj::takePicture(){
+    take_photo();
+}
+
+void KeyPusherObj::pushScript(){
+    push_Script();
+}
