@@ -19,45 +19,6 @@ void push_Script();
 
 bool textmode;
 
-/*int main(int argc, char** argv){
-	string input;
-	bool quit = false;
-	char selection;
-	if(argc != 1){
-		parse_Flags(argc, argv);
-	}
-	cout << "If it isn't plugged in already, please plug your android phone in now." << endl;   //Trying to add some sort of instructions if they didn't read the README
-
-	cout << "Would you like to enable text mode? (Y/n)" << endl;
-	cin.get(selection);
-	cin.ignore(25, '\n');
-	if(toupper(selection) == 'Y'){
-		textmode = true;
-		cout << "Text Mode enabled" << endl;
-	}
-	else if(toupper(selection) == 'N'){
-		textmode = false;
-		cout << "Text Mode disabled" << endl;
-	}
-	else{
-		cout << "Invalid selection automatically enabling Text Mode" << endl;
-	}
-
-	cout << "Type \"exit\" at any time to quit"<< endl << "Type \"read\" to get most recent text" << endl;
-	while(!quit){
-		cout << "input text" << endl;
-		getline(cin, input);
-		if(input == "exit")
-			quit = true;
-		else if(input == "read")
-			get_sms();
-		else if(input == "camera")
-			take_photo();
-		else
-			send_string(parse_string(input));
-	}
-	return 0;
-}*/
 
 void send_string(vector<string> words){
 
@@ -98,9 +59,9 @@ vector<string> parse_string(string phrase){
 
 bool check_apostrophe(string &word){
 
-	unsigned found = word.find_first_of(" \' ");
+    //unsigned found = word.find_first_of(" \' ");
 	
-	return found!=string::npos;
+    return word.find_first_of(" ' ") != string::npos;
 }
 
 
@@ -146,9 +107,7 @@ void get_sms(){
 }
 
 void take_photo(){
-	system("adb shell sh /sdcard/take_photo.sh"); // will only work if script has been pushed to device
-
-
+    system("adb shell sh /sdcard/take_photo.sh"); // will only work if script has been pushed to device
 }
 
 void parse_Flags(int input_tokens, char **input_string){
