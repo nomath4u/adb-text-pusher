@@ -58,8 +58,6 @@ vector<string> parse_string(string phrase){
 }
 
 bool check_apostrophe(string &word){
-
-    //unsigned found = word.find_first_of(" \' ");
 	
     return word.find_first_of(" ' ") != string::npos;
 }
@@ -78,12 +76,13 @@ void send_apostrophe_string(vector<string> frags){
 	}
 }
 
-void replace_apostrophe(string & word){
-	unsigned found = word.find_first_of(" \' ");
-	while(found!=string::npos){
+void replace_apostrophe(string &word){
+    size_t found = word.find_first_of("'");
+    while(found!=string::npos){
 		word[found] = ' ';
-		found = word.find_first_of(" \' ", found+1);
-	}
+        found = word.find_first_of("'", found+1);
+    }
+
 }
 
 void get_sms(){
@@ -110,17 +109,6 @@ void take_photo(){
     system("adb shell sh /sdcard/take_photo.sh"); // will only work if script has been pushed to device
 }
 
-void parse_Flags(int input_tokens, char **input_string){
-	string s;
-	int i;
-	for(i=1; i < input_tokens; i++){ //Parse the one flag
-		
-		s = input_string[i];
-		if(s == "-s"){
-			push_Script();
-		}
-	}
-}
 
 void push_Script(){
 	/* FIXME: Actually push the script */
