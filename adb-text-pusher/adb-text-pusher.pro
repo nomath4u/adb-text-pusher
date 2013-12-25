@@ -18,6 +18,7 @@ SOURCES += main.cpp\
     ../keypusherobj.cpp
 
 HEADERS  += mainwindow.h \
-    ../keypusherobj.h
+    ../keypusherobj.h \
+    ../keypusher.h
 
 FORMS    += mainwindow.ui
