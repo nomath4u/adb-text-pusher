@@ -37,9 +37,9 @@ QWidget* setUpGUI(){
      QPushButton* quitButton = new QPushButton("&Quit");
      QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
      QPushButton* sendButton = new QPushButton("&Send");
-     QCheckBox* autoSendBox = new QCheckBox("&Send Message on Text Send");
+     QCheckBox* autoSendBox = new QCheckBox("Send &Message on Text Send");
      QPushButton* cameraButton = new QPushButton("&Camera");
-     QPushButton* scriptButton = new QPushButton("Push &Script");
+     QPushButton* scriptButton = new QPushButton("&Push Script");
 
 
 
