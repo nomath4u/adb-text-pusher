@@ -9,7 +9,7 @@
 using namespace std;
 
 
-
+bool textMode;
 
 void send_string(vector<string> words){
 
@@ -29,7 +29,7 @@ void send_string(vector<string> words){
             system("adb shell input keyevent 62"); //Send space key
         }
 	}
-	if(textmode)
+    if(textMode)
 		system("adb shell input keyevent 66"); //Send enter key
 	
 }
@@ -109,5 +109,5 @@ void push_Script(){
 }
 
 void set_TextMode(bool state){
-        textmode = state;
+        textMode = state;
 }

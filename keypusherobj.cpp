@@ -1,5 +1,6 @@
 #include "keypusherobj.h"
-#include "keypusher.cpp"
+#include "keypusher.h"
+
 #include <QLineEdit>
 #include <QCheckBox>
 

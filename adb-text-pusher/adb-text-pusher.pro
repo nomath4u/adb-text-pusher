@@ -22,3 +22,5 @@ HEADERS  += mainwindow.h \
     ../keypusher.h
 
 FORMS    += mainwindow.ui
+
+INCLUDEPATH += /home/chris/Projects/adb-text-pusher
