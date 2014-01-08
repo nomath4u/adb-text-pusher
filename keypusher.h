@@ -15,6 +15,7 @@ using namespace std;
     void parse_Flags(int, char**);
     void push_Script();
     void set_TextMode(bool);
+    void launch_sms(string);
 
 
 #endif // KEYPUSHER_H

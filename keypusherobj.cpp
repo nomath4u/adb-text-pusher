@@ -29,3 +29,7 @@ void KeyPusherObj::takePicture(){
 void KeyPusherObj::pushScript(){
     push_Script();
 }
+
+void KeyPusherObj::launchSms(){
+    launch_sms("15417882922");
+}

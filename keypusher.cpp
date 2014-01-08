@@ -111,3 +111,9 @@ void push_Script(){
 void set_TextMode(bool state){
         textMode = state;
 }
+
+void launch_sms(string number){
+    //Launch SMS messaging application with am command here
+    string command = "adb shell am start -a android.intent.action.SENDTO -d sms:" + number;
+    system(command.c_str());
+}

@@ -40,6 +40,7 @@ QWidget* setUpGUI(){
      QCheckBox* autoSendBox = new QCheckBox("Send &Message on Text Send");
      QPushButton* cameraButton = new QPushButton("&Camera");
      QPushButton* scriptButton = new QPushButton("&Push Script");
+     QPushButton* smsButton = new QPushButton("Launch SMS");
 
 
 
@@ -50,6 +51,7 @@ QWidget* setUpGUI(){
      QObject::connect(textInput,SIGNAL(returnPressed()),pusher,SLOT(sendString()));
      QObject::connect(cameraButton,SIGNAL(clicked()),pusher,SLOT(takePicture()));
      QObject::connect(scriptButton,SIGNAL(clicked()),pusher,SLOT(pushScript()));
+     QObject::connect(smsButton,SIGNAL(clicked()),pusher,SLOT(launchSms()));
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
@@ -60,6 +62,7 @@ QWidget* setUpGUI(){
      buttons->addWidget(sendButton);
      buttons->addWidget(cameraButton);
      buttons->addWidget(scriptButton);
+     buttons->addWidget(smsButton);
      layout->addLayout(buttons);
 
      window->setLayout(layout);

@@ -16,6 +16,7 @@ public slots:
     void setAutoSendState();
     void takePicture();
     void pushScript();
+    void launchSms();
 
 private:
     QLineEdit* box;
