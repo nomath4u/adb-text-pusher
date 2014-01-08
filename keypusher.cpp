@@ -112,8 +112,17 @@ void set_TextMode(bool state){
         textMode = state;
 }
 
-void launch_sms(string number){
+void launch_sms(){
     //Launch SMS messaging application with am command here
-    string command = "adb shell am start -a android.intent.action.SENDTO -d sms:" + number;
+    string command = "adb shell am start -a com.google.android.talk/com.google.android.talk.MainActivity";
+    system(command.c_str());
+}
+
+void send_key(int key){
+    ostringstream convert;
+    convert << key;
+    string keystring = convert.str();
+    string command = "adb shell input keyevent " + keystring;
+    cout << "Sent key " << keystring << endl;
     system(command.c_str());
 }

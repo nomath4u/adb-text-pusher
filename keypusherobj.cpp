@@ -31,5 +31,29 @@ void KeyPusherObj::pushScript(){
 }
 
 void KeyPusherObj::launchSms(){
-    launch_sms("15417882922");
+    launch_sms();
+}
+
+void KeyPusherObj::sendUKey(){
+    send_key(19);
+}
+
+void KeyPusherObj::sendDKey(){
+    send_key(20);
+}
+
+void KeyPusherObj::sendLKey(){
+    send_key(21);
+}
+
+void KeyPusherObj::sendRKey(){
+    send_key(22);
+}
+
+void KeyPusherObj::sendEKey(){
+    send_key(66);
+}
+
+void KeyPusherObj::sendBackKey(){
+    send_key(4);
 }

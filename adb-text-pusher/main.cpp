@@ -8,6 +8,13 @@
 #include <QCheckBox>
 #include "../keypusherobj.h"
 
+const int dkey = 20;
+
+const int lkey = 21;
+const int rkey = 22;
+const int ukey = 19;
+
+
 QWidget* setUpGUI();
 
 int main(int argc, char *argv[])
@@ -41,7 +48,12 @@ QWidget* setUpGUI(){
      QPushButton* cameraButton = new QPushButton("&Camera");
      QPushButton* scriptButton = new QPushButton("&Push Script");
      QPushButton* smsButton = new QPushButton("Launch SMS");
-
+     QPushButton* upButton = new QPushButton("Up");
+     QPushButton* leftButton = new QPushButton("Left");
+     QPushButton* rightButton = new QPushButton("Right");
+     QPushButton* downButton = new QPushButton("Down");
+     QPushButton* enterButton = new QPushButton("Enter");
+     QPushButton* backButton = new QPushButton("Back");
 
 
      QLineEdit* textInput = new QLineEdit("Enter text here");
@@ -52,6 +64,14 @@ QWidget* setUpGUI(){
      QObject::connect(cameraButton,SIGNAL(clicked()),pusher,SLOT(takePicture()));
      QObject::connect(scriptButton,SIGNAL(clicked()),pusher,SLOT(pushScript()));
      QObject::connect(smsButton,SIGNAL(clicked()),pusher,SLOT(launchSms()));
+     QObject::connect(upButton,SIGNAL(clicked()),pusher,SLOT(sendUKey()));
+     QObject::connect(leftButton,SIGNAL(clicked()),pusher,SLOT(sendLKey()));
+     QObject::connect(rightButton,SIGNAL(clicked()),pusher,SLOT(sendRKey()));
+     QObject::connect(downButton,SIGNAL(clicked()),pusher,SLOT(sendDKey()));
+     QObject::connect(enterButton,SIGNAL(clicked()),pusher,SLOT(sendEKey()));
+     QObject::connect(backButton,SIGNAL(clicked()),pusher,SLOT(sendBackKey()));
+
+
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
@@ -63,6 +83,12 @@ QWidget* setUpGUI(){
      buttons->addWidget(cameraButton);
      buttons->addWidget(scriptButton);
      buttons->addWidget(smsButton);
+     buttons->addWidget(leftButton);
+     buttons->addWidget(rightButton);
+     buttons->addWidget(upButton);
+     buttons->addWidget(downButton);
+     buttons->addWidget(enterButton);
+     buttons->addWidget(backButton);
      layout->addLayout(buttons);
 
      window->setLayout(layout);
