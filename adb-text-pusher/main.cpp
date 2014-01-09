@@ -49,11 +49,14 @@ QWidget* setUpGUI(){
      QPushButton* scriptButton = new QPushButton("&Push Script");
      QPushButton* smsButton = new QPushButton("Launch SMS");
      QPushButton* upButton = new QPushButton("Up");
+     upButton->setFixedSize(upButton->sizeHint());
      QPushButton* leftButton = new QPushButton("Left");
      QPushButton* rightButton = new QPushButton("Right");
      QPushButton* downButton = new QPushButton("Down");
+     downButton->setFixedSize(upButton->sizeHint());
      QPushButton* enterButton = new QPushButton("Enter");
      QPushButton* backButton = new QPushButton("Back");
+     //QSpacerItem *item = new QSpacerItem(1,1)
 
 
      QLineEdit* textInput = new QLineEdit("Enter text here");
@@ -75,21 +78,34 @@ QWidget* setUpGUI(){
 
      /*Define the layouts*/
      QVBoxLayout *layout = new QVBoxLayout;
-     layout->addWidget(textInput);
-     layout->addWidget(autoSendBox);
-     QHBoxLayout *buttons = new QHBoxLayout();
-     buttons->addWidget(quitButton);
-     buttons->addWidget(sendButton);
-     buttons->addWidget(cameraButton);
-     buttons->addWidget(scriptButton);
-     buttons->addWidget(smsButton);
-     buttons->addWidget(leftButton);
-     buttons->addWidget(rightButton);
-     buttons->addWidget(upButton);
-     buttons->addWidget(downButton);
-     buttons->addWidget(enterButton);
-     buttons->addWidget(backButton);
-     layout->addLayout(buttons);
+     QHBoxLayout *firstLine = new QHBoxLayout();
+     QHBoxLayout *secondLine = new QHBoxLayout();
+     QHBoxLayout *thirdLine = new QHBoxLayout();
+     QHBoxLayout *fourthLine = new QHBoxLayout();
+     firstLine->setAlignment(Qt::AlignLeft);
+     //firstLine->insertSpacerItem(item);
+     firstLine->insertSpacing(0,upButton->width()/2);
+     thirdLine->insertSpacing(0,upButton->width()/2);
+     secondLine->addWidget(leftButton);
+     secondLine->addWidget(rightButton);
+     firstLine->addWidget(upButton);
+
+     thirdLine->addWidget(downButton);
+     fourthLine->addWidget(enterButton);
+     fourthLine->addWidget(backButton);
+     fourthLine->addWidget(sendButton);
+     fourthLine->addWidget(cameraButton);
+     fourthLine->addWidget(quitButton);
+     fourthLine->addWidget(scriptButton);
+     fourthLine->addWidget(smsButton);
+
+
+     secondLine->addWidget(textInput);
+     thirdLine->addWidget(autoSendBox);
+     layout->addLayout(firstLine);
+     layout->addLayout(secondLine);
+     layout->addLayout(thirdLine);
+     layout->addLayout(fourthLine);
 
      window->setLayout(layout);
 
